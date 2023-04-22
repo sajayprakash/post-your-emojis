@@ -1,9 +1,13 @@
-import { SignInButton, SignOutButton, UserButton, useUser } from "@clerk/nextjs";
+import {
+  SignInButton,
+  SignOutButton,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
 import { type NextPage } from "next";
 
 import { api } from "~/utils/api";
 
-import Image from "next/image";
 import { LoadingPage, LoadingSpinner } from "~/components/loading";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
@@ -35,16 +39,17 @@ const CreatePostWizard = () => {
   if (!user) return null;
 
   return (
-
     <div className="flex w-full gap-3">
-      <UserButton appearance={{
-        elements: {
-          userButtonAvatarBox: {
-            width: 56,
-            height: 56
-          }
-        }
-      }} />
+      <UserButton
+        appearance={{
+          elements: {
+            userButtonAvatarBox: {
+              width: 56,
+              height: 56,
+            },
+          },
+        }}
+      />
       <input
         placeholder="Type some emojis!"
         className="grow bg-transparent outline-none"
@@ -113,11 +118,11 @@ const Home: NextPage = () => {
         )}
         {isSignedIn && (
           <>
-          <div className="flex justify-center pb-3"> 
-            <SignOutButton />
-          </div>
+            <div className="flex justify-center pb-3">
+              <SignOutButton />
+            </div>
             <div>
-            <CreatePostWizard />
+              <CreatePostWizard />
             </div>
           </>
         )}
@@ -140,7 +145,9 @@ const Home: NextPage = () => {
           </div>
         </a>
         <span>
-          <a href="https://postyouremojis.sajayprakash.com">🔥 Post Your Emojis</a>
+          <a href="https://postyouremojis.sajayprakash.com">
+            🔥 Post Your Emojis
+          </a>
         </span>
       </div>
     </PageLayout>
